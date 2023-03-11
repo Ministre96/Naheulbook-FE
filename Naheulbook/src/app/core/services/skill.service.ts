@@ -18,4 +18,9 @@ export class SkillService {
   getAll() : Observable<Skill[]>{
     return this.$client.get<Skill[]>(this.url+"/skills")
   }
+
+  create(skill : Skill) : Observable<void>{
+    return this.$client.post<void>(this.url+"/skills",skill)
+  } 
+  
 }
