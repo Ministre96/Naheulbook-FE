@@ -1,0 +1,6 @@
+<p>list-scharacter works!</p>
+<div *ngFor="let item of list">
+    {{ item |json }}
+    <app-small-character [character]="item"></app-small-character>
+</div>
+
