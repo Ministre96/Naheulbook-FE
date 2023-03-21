@@ -1,0 +1,23 @@
+<ul id="dropdown1" class="dropdown-content">
+  <li><a [routerLink]="['/admin/modify/jobs']">Job</a></li>
+  <li><a [routerLink]="['/admin/modify/origins']">Origin</a></li>
+  <li><a [routerLink]="['/admin/modify/skills']">Skill</a></li>
+</ul>
+<nav class="nav-extended">
+    <div class="nav-wrapper">
+      <div class="brand-logo">Admin</div>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="">LogOut</a></li>
+      </ul>
+    </div>
+    <div class="nav-wrapper">
+      <ul>
+        <li><a [routerLink]="['/admin']">Create</a></li>
+        <li><a #dropdownTrigger href="#!" data-target="dropdown1">Modify<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a  class="disabled" href="">LogOut</a></li>
+  </ul>

@@ -7,8 +7,6 @@ import { JobService } from 'src/app/core/services/job.service';
 import { MatSelectDirective } from 'src/app/shared/materialize/directives/mat-select.directive';
 import { Skill } from 'src/app/core/models/skill.model';
 import { SkillService } from 'src/app/core/services/skill.service';
-import { TypedFormModule } from 'src/app/shared/typed-form/typed-form.module';
-import { FormGroupValidator } from 'src/app/shared/typed-form/validators/form-group.validator';
 import { Characteristic } from 'src/app/core/models/characteristic.model';
 @Component({
   selector: 'app-add-job',
@@ -17,7 +15,7 @@ import { Characteristic } from 'src/app/core/models/characteristic.model';
 })
 export class AddJobComponent {
   skills : Skill[] =[]
-  originRestriction : Origin[] = []
+  bannedOrigin : Origin[] = []
   fg! : FormGroup
   tempChar : Characteristic[] = []
 
@@ -40,16 +38,15 @@ export class AddJobComponent {
     this.fg = this.$formBuilder.group({
       name : [null, Validators.minLength(2)],
       description : [],
-      originRestriction : [],
-      heritSkills : [],
-      choiceSkills : [/*FormGroupValidator.sameList() ajout condition list skill1 =/= list skill2*/],
-      
+      bannedOrigin : [],
+      heritatedSkill : [],
+      skillToChoose : []
     })
   }
 
   loadItems(){
     this.$originService.getAll().subscribe((data : Origin[]) => {
-      this.originRestriction = data
+      this.bannedOrigin = data
     })
     this.$skillService.getAll().subscribe((data : Skill[]) => {
       this.skills = data
@@ -63,9 +60,9 @@ export class AddJobComponent {
       name : this.fg.value["name"],
       description : this.fg.value["description"],
       requierement : this.tempChar,//A MODIFIER 
-      originRestriction : this.fg.value["originRestriction"],
-      heritSkills : this.fg.value["heritSkills"],
-      choiceSkills : this.fg.value["choiceSkills"]
+      bannedOrigin : this.fg.value["bannedOrigin"],
+      heritatedSkill : this.fg.value["heritatedSkill"],
+      skillToChoose : this.fg.value["skillToChoose"]
     }
     this.$jobService.create(newJob).subscribe(() => {
       alert("Job registred")

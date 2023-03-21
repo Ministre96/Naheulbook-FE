@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminComponent } from './core/pages/admin/admin.component';
-import { WelcomeComponent } from './core/pages/welcome/welcome.component';
-import { WelcomeModule } from './core/pages/welcome/welcome.module';
+import { AdminComponent } from './pages/admin/admin.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { WelcomeModule } from './pages/welcome/welcome.module';
 
 const routes: Routes = [
   {path : '', component : WelcomeComponent },
-  {path : 'admin', loadChildren: () => import('./core/pages/admin/admin.module').then(m => m.AdminModule) },
+  {path : 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule) },
 ];
 
 @NgModule({

@@ -7,7 +7,7 @@ export interface Job {
     name : string
     description : string
     requierement? : Characteristic[]
-    originRestriction : Origin[]
-    heritSkills : Skill[]
-    choiceSkills : Skill[]
+    bannedOrigin : Origin[]
+    heritatedSkill : Skill[]
+    skillToChoose : Skill[]
 }

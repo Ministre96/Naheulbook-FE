@@ -1,0 +1,18 @@
+<div>
+    <app-header></app-header>
+</div>
+<p>list-skills works!</p>
+<table class="highlight">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let origin of skills">
+            <td>{{origin.name}}</td>
+            <td>{{origin.description}}</td>
+        </tr>
+    </tbody>
+</table>

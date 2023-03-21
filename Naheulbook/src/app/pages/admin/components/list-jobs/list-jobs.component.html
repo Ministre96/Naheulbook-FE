@@ -1,0 +1,39 @@
+<div>
+    <header></header>
+</div>
+<p>list-jobs works!</p>
+<table class="highlight">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Heritaded skill</th>
+            <th>Skill to choose</th>
+            <th>Banned Origin</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let job of jobs">
+            <td>{{job.name}}</td>
+            <td>{{job.description}}</td>
+            <td >
+                <div *ngFor="let item of job.heritatedSkill">
+                    {{ item.name }}
+                </div>
+            </td>
+            <td >
+                <div *ngFor="let item of job.skillToChoose">
+                    {{ item.name }}
+                </div>
+            </td>
+            <td>
+                <div *ngFor="let item of job.bannedOrigin">
+                    {{ item.name }}
+                </div>
+            </td>
+            <td>
+                <button (click)="delete(job.id)">cancel</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

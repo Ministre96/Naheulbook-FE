@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { WelcomeRoutingModule } from './welcome-routing.module';
 import { WelcomeComponent } from './welcome.component';
 import { StatsComponent } from './components/stats/stats.component';
-import { CoreModule } from '../../core.module';
-import { ListSCharacterComponent } from '../../components/list-scharacter/list-scharacter.component';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 @NgModule({

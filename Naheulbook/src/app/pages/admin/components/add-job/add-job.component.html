@@ -1,0 +1,40 @@
+<p>add-job works!</p>
+<form [formGroup]="fg" (ngSubmit)="addJob()">
+    <p>
+        Name:
+        <input type="text" formControlName="name">
+    </p>
+    <p *ngIf="fg.controls['name'].invalid" style="color:red;">
+        Le name 
+    </p>
+    <p>
+        Description:
+        <input type="text" formControlName="description">
+    </p>
+    <p *ngIf="fg.controls['description'].invalid" style="color:red;">
+        La description
+    </p>   
+    <div class="input-field">
+        <label for="bannedOrigin" class="active">Origin restriction:</label>
+        <select multiple matSelect name="bannedOrigin" id="bannedOrigin" formControlName="bannedOrigin">
+        <option *ngFor="let it of bannedOrigin" [value]="it">{{it.name}}</option>
+        </select>
+    </div>
+    <div class="input-field">
+        <label for="heritatedSkill" class="active">Herited skills:</label>
+        <select multiple matSelect name="heritatedSkill" id="heritatedSkill" formControlName="heritatedSkill">
+        <option *ngFor="let it of skills" [value]="it">{{it.name}}</option>
+        </select>
+    </div>
+    <div class="input-field">
+        <label for="skillToChoose" class="active">Skills to choose:</label>
+        <select multiple matSelect name="skillToChoose" id="skillToChoose" formControlName="skillToChoose">
+        <option *ngFor="let it of skills" [value]="it">{{it.name}}</option>
+        </select>
+    </div>
+    <p *ngIf="fg.controls['skillToChoose'].invalid" style="color:red;">
+        les skills heritated doivent être diff des choice
+    </p> 
+
+    <button type="submit" [disabled]="fg.invalid">Valider</button>
+</form>

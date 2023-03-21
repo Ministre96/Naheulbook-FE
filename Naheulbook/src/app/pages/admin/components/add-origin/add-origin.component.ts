@@ -36,8 +36,8 @@ export class AddOriginComponent {
     this.fg = this.$formBuilder.group({
       name : [null, Validators.minLength(2)],
       description : [],
-      heritSkills : [],
-      choiceSkills : [/*FormGroupValidator.sameList() ajout condition list skill1 =/= list skill2*/]
+      heritatedSkill : [],
+      skillToChoose : [/*FormGroupValidator.sameList() ajout condition list skill1 =/= list skill2*/]
     })
   }
 
@@ -54,11 +54,11 @@ export class AddOriginComponent {
       name : this.fg.value["name"],
       description : this.fg.value["description"],
       requierement : this.tempChar,//A MODIFIER 
-      heritSkills : this.fg.value["heritSkills"],
-      choiceSkills : this.fg.value["choiceSkills"]
+      heritatedSkill : this.fg.value["heritatedSkill"],
+      skillToChoose : this.fg.value["skillToChoose"]
     }
     this.$originService.create(newOrigin).subscribe(() => {
-      alert("Job registred")
+      alert("Origin registred")
       this.initForm()
     })
   }

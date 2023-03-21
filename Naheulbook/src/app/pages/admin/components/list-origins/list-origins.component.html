@@ -1,0 +1,30 @@
+<div>
+    <app-header></app-header>
+</div>
+<p>list-origins works!</p>
+<table class="highlight">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Heritaded skill</th>
+            <th>Skill to choose</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let origin of orgins">
+            <td>{{origin.name}}</td>
+            <td>{{origin.description}}</td>
+            <td >
+                <div *ngFor="let item of origin.heritatedSkill">
+                    {{ item.name }}
+                </div>
+            </td>
+            <td >
+                <div *ngFor="let item of origin.skillToChoose">
+                    {{ item.name }}
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

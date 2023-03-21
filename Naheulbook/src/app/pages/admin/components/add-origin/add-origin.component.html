@@ -15,18 +15,18 @@
         La description
     </p> 
     <div class="input-field">
-        <label for="heritSkills" class="active">Herited skills:</label>
-        <select multiple matSelect name="heritSkills" id="heritSkills" formControlName="heritSkills">
-        <option *ngFor="let it of skills" [value]="it.name">{{it.name}}</option>
+        <label for="heritatedSkill" class="active">Herited skills:</label>
+        <select multiple matSelect name="heritatedSkill" id="heritatedSkill" formControlName="heritatedSkill">
+        <option *ngFor="let it of skills" [value]="it">{{it.name}}</option>
         </select>
     </div>
     <div class="input-field">
-        <label for="choiceSkills" class="active">Herited skills:</label>
-        <select multiple matSelect name="choiceSkills" id="choiceSkills" formControlName="choiceSkills">
-        <option *ngFor="let it of skills" [value]="it.name">{{it.name}}</option>
+        <label for="skillToChoose" class="active">Skills to choose:</label>
+        <select multiple matSelect name="skillToChoose" id="skillToChoose" formControlName="skillToChoose">
+        <option *ngFor="let it of skills" [value]="it">{{it.name}}</option>
         </select>
     </div>
-    <p *ngIf="fg.controls['choiceSkills'].invalid" style="color:red;">
+    <p *ngIf="fg.controls['skillToChoose'].invalid" style="color:red;">
         les skills heritated doivent être diff des choice
     </p> 
 

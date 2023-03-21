@@ -9,6 +9,7 @@ import { Job } from '../models/job.model';
 })
 export class JobService {
   private url : string = environment.url
+
   constructor(
     private $client : HttpClient
   ) { }
