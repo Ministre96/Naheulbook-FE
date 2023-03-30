@@ -5,7 +5,7 @@
             <label>Job:</label>
             <select class="browser-default" formControlName="job" (change)="selectJob()">
                 <option value="" disabled selected>Choose your option</option>
-                <option *ngFor="let item of jobs" [ngValue]="item">{{item.name}}</option>
+                <option *ngFor="let item of _jobs" [ngValue]="item">{{item.name}}</option>
             </select>
         </form>
     </div>

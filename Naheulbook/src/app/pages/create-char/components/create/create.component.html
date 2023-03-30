@@ -13,11 +13,11 @@
 
     <div class="col s5">
 
-        <app-origin-choice *ngIf="char.characteristics" [characteristics]="char.characteristics"
+        <app-origin-choice *ngIf="char.characteristics" [origins]="origins"
             (validOrigin)="validOrigin($event)">
         </app-origin-choice>
 
-        <app-job-choice *ngIf="char.origin" [origin]="char.origin" (validJob)="validJob($event)">
+        <app-job-choice *ngIf="char.origin" [jobs]="jobs" (validJob)="validJob($event)">
         </app-job-choice>
 
         <app-skills-choice *ngIf="char.job" [character]="char">

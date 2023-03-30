@@ -12,29 +12,25 @@ import { JobService } from 'src/app/core/services/job.service';
 })
 export class JobChoiceComponent {
 
-  _origin!: Origin
+  fgj! : FormGroup
+  _jobs!: Job[]
   temp : boolean = false
 
   @Output() validJob = new EventEmitter<Job>();
-  @Input() set origin(origin : Origin) {
-    this.origin = origin
-    this.loadList()
+  @Input() set jobs(jobs : Job[]) {
+    this._jobs = jobs
+    // this.loadList()
   }
 
   get character(){
-    return this._origin
+    return this._jobs
   }
-
-  fgj! : FormGroup
-  jobs! : Job[]
-
   constructor(
-    private $jobService : JobService,
     private $formBuilder : FormBuilder
   ){}
 
   ngOnInit(){
-    this.loadList()
+    // this.loadList()
     this.initForm()
     this.temp = true
   }
@@ -47,25 +43,25 @@ export class JobChoiceComponent {
   }
 
 
-  loadList(){
-    this.$jobService.getAll().subscribe((data : Job[]) => {
-    this.jobs = data
-    this.restrictJob()
-  })
-  }
+  // loadList(){
+  //   this.$jobService.getAll().subscribe((data : Job[]) => {
+  //   this.jobs = data
+  //   this.restrictJob()
+  // })
+  // }
 
-  restrictJob(){
-    for (let i = 0; i < this.jobs.length; i++) {
-      if(this.jobs[i].bannedOrigin){
-        for (let j = 0; j < this.jobs[i].bannedOrigin.length; j++) {
-          if(this.jobs[i].bannedOrigin[j].name == this._origin?.name){
-            this.jobs.splice(i, 1)
-            i--
-          }
-        }
-      }
-    }
-  }
+  // restrictJob(){
+  //   for (let i = 0; i < this.jobs.length; i++) {
+  //     if(this.jobs[i].bannedOrigin){
+  //       for (let j = 0; j < this.jobs[i].bannedOrigin.length; j++) {
+  //         if(this.jobs[i].bannedOrigin[j].name == this._origin?.name){
+  //           this.jobs.splice(i, 1)
+  //           i--
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   selectJob(){
     this.validJob.emit(this.fgj.value.job)

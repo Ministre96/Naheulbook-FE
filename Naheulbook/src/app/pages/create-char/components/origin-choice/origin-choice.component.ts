@@ -15,27 +15,27 @@ export class OriginChoiceComponent {
   
   _characteristics! : Characteristic[]
   fg! : FormGroup
-  origins! : Origin[]
+  _origins! : Origin[]
 
   @Output() validOrigin = new EventEmitter<Origin>();
 
-  @Input() set characteristics(chararacteristics : Characteristic[]) {
-    this._characteristics = chararacteristics
-    this.loadList()
+  @Input() set origins(origins : Origin[]) {
+    this._origins = origins
+    // this.loadList()
   }
 
-  get charac(){
-    return this._characteristics
+  get origin(){
+    return this._origins
   }
 
   constructor(
-    private $originService : OriginService,
+    // private $originService : OriginService,
     private $formBuilder : FormBuilder
   ){}
 
 
   ngOnInit(){
-    this.loadList()
+    // this.loadList()
     this.initForm()
   }
 
@@ -47,11 +47,11 @@ export class OriginChoiceComponent {
   }
 
 
-  loadList(){
-    this.$originService.getAll().subscribe((data : Origin[]) => 
-    this.origins = data)
-    // this.restrictOrigin()
-  }
+  // loadList(){
+  //   this.$originService.getAll().subscribe((data : Origin[]) => 
+  //   this.origins = data)
+  //   // this.restrictOrigin()
+  // }
 
 
   // restrictOrigin(){
