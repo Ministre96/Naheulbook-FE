@@ -4,17 +4,18 @@ import { WelcomeRoutingModule } from './welcome-routing.module';
 import { WelcomeComponent } from './welcome.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { CoreModule } from 'src/app/core/core.module';
+import { HeaderComponent } from '../admin/header/header.component';
 
 
 @NgModule({
   declarations: [
     WelcomeComponent,
-    StatsComponent,
+    StatsComponent
   ],
   imports: [
     CommonModule,
     WelcomeRoutingModule,
-    CoreModule
+    CoreModule,
   ]
 })
 export class WelcomeModule { }

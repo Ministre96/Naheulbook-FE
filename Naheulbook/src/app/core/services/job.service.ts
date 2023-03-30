@@ -15,11 +15,15 @@ export class JobService {
   ) { }
 
   getAll() : Observable<Job[]>{
-    return this.$client.get<Job[]>(this.url+"/jobs")
+    return this.$client.get<Job[]>(this.url+"/jobs");
   }
 
   create(job : Job) : Observable<void>{
     return this.$client.post<void>(this.url+"/jobs", job)
+  }
+
+  getOne(id : number) : Observable<Job>{
+    return this.$client.get<Job>(this.url+"/jobs/"+id)
   }
   
 }

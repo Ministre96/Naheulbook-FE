@@ -1,0 +1,15 @@
+<p>update-skill works!</p>
+<form [formGroup]="fg" (ngSubmit)="updateSkill()">
+    <p>
+        Name:
+        <input type="text" formControlName="name">
+    </p>
+    <p *ngIf="fg.controls['name'].invalid" style="color:red;">
+        Le name 
+    </p>
+    <p>
+        Description:
+        <input type="text" formControlName="description">
+    </p>    
+    <button type="submit" [disabled]="fg.invalid">Valider</button>
+</form>

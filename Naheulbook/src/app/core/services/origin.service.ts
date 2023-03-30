@@ -21,4 +21,8 @@ export class OriginService {
   create(origin : Origin) : Observable<void>{
     return this.$client.post<void>(this.url+"/origins", origin)
   }
+
+  getOne(id : number) : Observable<Origin>{
+    return this.$client.get<Origin>(this.url+"/origins/"+id)
+  }
 }

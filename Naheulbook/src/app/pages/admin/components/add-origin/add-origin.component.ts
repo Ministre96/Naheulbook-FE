@@ -49,7 +49,6 @@ export class AddOriginComponent {
   }
 
   addOrigin(){
-    console.log(this.fg.value)
     let newOrigin : Origin = {
       name : this.fg.value["name"],
       description : this.fg.value["description"],

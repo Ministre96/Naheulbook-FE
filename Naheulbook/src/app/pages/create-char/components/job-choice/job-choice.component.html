@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col s2"></div>
+    <div class="input-field col s8" *ngIf="temp">
+        <form [formGroup]="fgj">
+            <label>Job:</label>
+            <select class="browser-default" formControlName="job" (change)="selectJob()">
+                <option value="" disabled selected>Choose your option</option>
+                <option *ngFor="let item of jobs" [ngValue]="item">{{item.name}}</option>
+            </select>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col s2"></div>
+    <div class="input-field col s8">
+        <form [formGroup]="fg">
+            <label>Origin:</label>
+            <select class="browser-default" formControlName="origin" (change)="selectOrigin()">
+                <option value="" disabled selected>Choose your option</option>
+                <option *ngFor="let item of origins" [ngValue]="item">{{item.name}}</option>
+            </select>
+        </form>
+    </div>
+</div>

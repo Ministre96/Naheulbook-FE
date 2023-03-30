@@ -1,6 +1,3 @@
-<div>
-    <app-header></app-header>
-</div>
 <p>list-origins works!</p>
 <table class="highlight">
     <thead>
@@ -24,6 +21,12 @@
                 <div *ngFor="let item of origin.skillToChoose">
                     {{ item.name }}
                 </div>
+            </td>
+            <td>
+                <a [routerLink]="['/admin/modify/origin/'+origin.id]">edit</a>
+            </td>
+            <td>
+                <button (click)="delete(origin.id!)">cancel</button>
             </td>
         </tr>
     </tbody>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, tap } from 'rxjs';
 import { environment } from 'src/environment';
 import { Skill } from '../models/skill.model';
 
@@ -22,5 +22,9 @@ export class SkillService {
   create(skill : Skill) : Observable<void>{
     return this.$client.post<void>(this.url+"/skills",skill)
   } 
+
+  getOne(id : number) : Observable<Skill>{
+    return this.$client.get<Skill>(this.url+"/skills/"+id)
+  }
   
 }

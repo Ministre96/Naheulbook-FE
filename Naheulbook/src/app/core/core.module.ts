@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SmallCharacterComponent } from './components/small-character/small-character.component';
 import { ListSCharacterComponent } from './components/list-scharacter/list-scharacter.component';
+import { ClientHeaderComponent } from './components/client-header/client-header.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -9,13 +11,16 @@ import { ListSCharacterComponent } from './components/list-scharacter/list-schar
   declarations: [
     SmallCharacterComponent,
     ListSCharacterComponent,
+    ClientHeaderComponent,
 
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
-    ListSCharacterComponent
+    ListSCharacterComponent,
+    ClientHeaderComponent
   ]
 })
 export class CoreModule {

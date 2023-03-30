@@ -1,0 +1,16 @@
+<div class="row">
+    <table class="centered col s7">
+        <tr *ngFor="let r of roll">
+            <td>{{r.name}} :</td>
+            <td *ngIf="r.value">{{r.value}}</td>
+        </tr>
+    </table>
+    <div class="col s5">
+        <div>Fate: <span *ngIf="char.fate !== undefined"> {{char.fate}}</span></div>
+        <div>Gold: <span *ngIf="char.gold"> {{char.gold}} </span></div>
+    </div>
+    
+</div>
+<button (click)="rollDice()">roll</button>
+
+

@@ -18,9 +18,6 @@ export class ListJobsComponent {
 
   ngOnInit(){
     this.loadList()
-    setTimeout(() => {
-      console.log(this.jobs);
-    }, 1000);
   }
 
   loadList(){
@@ -29,6 +26,8 @@ export class ListJobsComponent {
   }
 
   delete(id : number){
-    this.$jobAdminService.delete(id);
+    console.log("delete " + id)
+    this.$jobAdminService.delete(id).subscribe()
+    this.loadList()
   }
 }

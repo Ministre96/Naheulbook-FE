@@ -1,0 +1,31 @@
+<div class="row" style="margin-bottom: 40px;">
+    <div class="col s1"></div>
+    <div class="col s4">
+        <label>Name:</label>
+        <input type="text">
+    </div>
+</div>
+<div class="row">
+    <div class="col s1"></div>
+    <div class="col s5">
+        <app-roll (validRoll)="validRoll($event)"></app-roll>
+    </div>
+
+    <div class="col s5">
+
+        <app-origin-choice *ngIf="char.characteristics" [characteristics]="char.characteristics"
+            (validOrigin)="validOrigin($event)">
+        </app-origin-choice>
+
+        <app-job-choice *ngIf="char.origin" [origin]="char.origin" (validJob)="validJob($event)">
+        </app-job-choice>
+
+        <app-skills-choice *ngIf="char.job" [character]="char">
+        </app-skills-choice>
+
+        <div class="row">
+            <div class="col s5"></div>
+            <button style="margin-top: 40px;">Valid Character</button>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,4 @@
+import { Characteristic } from "./characteristic.model"
 import { Customer } from "./customer.model"
 import { Job } from "./job.model"
 import { Origin } from "./origin.model"
@@ -10,6 +11,7 @@ export interface Character {
     sexe? : string
     gold? : number
     fate? : number
+    characteristics? : Characteristic[]
     job? : Job
     origin? : Origin
     skills? : Skill[]

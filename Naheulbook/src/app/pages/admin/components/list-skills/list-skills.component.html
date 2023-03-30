@@ -1,6 +1,3 @@
-<div>
-    <app-header></app-header>
-</div>
 <p>list-skills works!</p>
 <table class="highlight">
     <thead>
@@ -10,9 +7,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let origin of skills">
-            <td>{{origin.name}}</td>
-            <td>{{origin.description}}</td>
+        <tr *ngFor="let skill of skills">
+            <td>{{skill.name}}</td>
+            <td>{{skill.description}}</td>
+            <td>
+                <a [routerLink]="['/admin/modify/skill/'+skill.id]">edit</a>
+            </td>
+            <td>
+                <button (click)="delete(skill.id!)">cancel</button>
+            </td>
         </tr>
     </tbody>
 </table>
