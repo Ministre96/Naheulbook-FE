@@ -8,6 +8,20 @@ import { CharacterService } from '../../services/character.service';
   styleUrls: ['./small-character.component.scss']
 })
 export class SmallCharacterComponent {
-  @Input() character : Character | undefined
+  _character! : Character
+
+  @Input() set character (character : Character){
+    this._character = character
+  }
+  
+  get character(){
+    return this._character
+  }
+  constructor(){
+  }
+
+  ngOnInt(){
+    
+  }
   
 }

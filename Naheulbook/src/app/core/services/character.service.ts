@@ -17,4 +17,8 @@ export class CharacterService {
   getAll() : Observable<Character[]> {
     return this.$client.get<Character[]>(this.url+"/characters")
   }
+
+  create(character : Character) : Observable<void> {
+    return this.$client.post<void>(this.url+"/characters", character)
+  }
 }

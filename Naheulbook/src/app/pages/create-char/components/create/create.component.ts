@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Character } from 'src/app/core/models/character.model';
 import { Characteristic } from 'src/app/core/models/characteristic.model';
 import { Job } from 'src/app/core/models/job.model';
 import { Origin } from 'src/app/core/models/origin.model';
+import { CharacterService } from 'src/app/core/services/character.service';
 import { JobService } from 'src/app/core/services/job.service';
 import { OriginService } from 'src/app/core/services/origin.service';
 
@@ -21,10 +22,22 @@ export class CreateComponent {
   constructor(
     private $formBuilder : FormBuilder,
     private $jobService : JobService,
+    private $characterService : CharacterService,
     private $originService : OriginService
   ){
-
   }
+
+  ngOnInit(){
+    this.initForm()
+  }
+
+  initForm(){
+    this.fg = this.$formBuilder.group({
+      firstname : [null, Validators.minLength(2)],
+      lastname : [null, Validators.minLength(2)]
+    })
+  }
+
   validRoll( newRoll : Character){
     this.char = {...this.char, characteristics : undefined}
     this.char = {...this.char,
@@ -72,5 +85,19 @@ loadOrigins(){
     this.char = {...this.char, job: newJob}
   }
 
+  validSkills(character : Character){
+    this.char = {...this.char, skills: character.skills}
+  }
 
+  addCharacter(){
+    this.char = {...this.char, 
+      firstname: this.fg.value["firstname"],
+      lastname: this.fg.value["lastname"]
+    }
+    console.log(this.char)
+    this.$characterService.create(this.char).subscribe(() => {
+      alert("Character created")
+      this.char = {}
+    })
+  }
 }

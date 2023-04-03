@@ -1,11 +1,12 @@
 <app-client-header style="margin-bottom: 40px;"></app-client-header>
-<p>welcome works!</p>
-***************************************
-<select id="monselect">
-    <option value="valeur1">Valeur 1</option>
-    <option value="valeur2" selected>Valeur 2</option>
-    <option value="valeur3">Valeur 3</option>
-</select>
-<br>
-***************************************
-<app-list-scharacter></app-list-scharacter>
+<div class="row">
+    <div class="col s10">
+        <app-list-scharacter
+        [characters]="characters"
+        ></app-list-scharacter>
+    </div>
+    <div class="col s2">
+        <app-stats
+        [nbrCharacter]="characters.length"></app-stats>
+    </div>
+</div>

@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from "./core/core.module";
 import { CreateCharComponent } from './pages/create-char/create-char.component';
+import { AccountManagementComponent } from './pages/account-management/account-management.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        CreateCharComponent
+        CreateCharComponent,
+        AccountManagementComponent
     ],
     providers: [],
     bootstrap: [AppComponent],

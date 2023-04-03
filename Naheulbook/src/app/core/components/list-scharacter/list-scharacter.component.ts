@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Character } from '../../models/character.model';
 import { CharacterService } from '../../services/character.service';
 
@@ -9,20 +9,16 @@ import { CharacterService } from '../../services/character.service';
 })
 export class ListSCharacterComponent {
 
-  list : Character[] = []
+  _characters : Character[] = []
 
-  constructor(
-    private $characterService : CharacterService
-  ){
-
-  }
-  ngOnInit(){
-    this.loadItems()
+  @Input() set characters(characters : Character[]) {
+    this._characters = characters
   }
 
-  loadItems(){
-    this.$characterService.getAll().subscribe((data : Character[]) => {
-      this.list = data
-    })
+  get character(){
+    return this._characters
   }
+
+
+
 }

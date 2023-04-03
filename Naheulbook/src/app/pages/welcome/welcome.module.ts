@@ -18,4 +18,7 @@ import { HeaderComponent } from '../admin/header/header.component';
     CoreModule,
   ]
 })
-export class WelcomeModule { }
+export class WelcomeModule {
+
+  
+ }

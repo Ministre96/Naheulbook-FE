@@ -21,21 +21,19 @@ export class OriginChoiceComponent {
 
   @Input() set origins(origins : Origin[]) {
     this._origins = origins
-    // this.loadList()
   }
 
   get origin(){
     return this._origins
   }
 
+  
   constructor(
-    // private $originService : OriginService,
     private $formBuilder : FormBuilder
   ){}
 
 
   ngOnInit(){
-    // this.loadList()
     this.initForm()
   }
 
@@ -45,29 +43,6 @@ export class OriginChoiceComponent {
       origin : []
     })
   }
-
-
-  // loadList(){
-  //   this.$originService.getAll().subscribe((data : Origin[]) => 
-  //   this.origins = data)
-  //   // this.restrictOrigin()
-  // }
-
-
-  // restrictOrigin(){
-  //   for(let i = 0; i < this.origins.length; i++){
-  //     if(this.origins[i].requierement){
-  //       for (let j = 0; j < this.origins[i].requierement!.length ;j++) {
-  //         this.charac.forEach(element => {
-  //           if(element.name == this.origins[i].requierement![j].name 
-  //             && element.value! < this.origins[i].requierement![j].value!){
-  //               this.origins.splice(i, 1)
-  //           }
-  //         });
-  //       }
-  //     }
-  //   }
-  // }
 
 
   selectOrigin(){

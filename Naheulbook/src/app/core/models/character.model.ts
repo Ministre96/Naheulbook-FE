@@ -6,8 +6,8 @@ import { Skill } from "./skill.model"
 
 export interface Character {
     id? : number
-    firstName? : string
-    lastName? : string
+    firstname? : string
+    lastname? : string
     sexe? : string
     gold? : number
     fate? : number
