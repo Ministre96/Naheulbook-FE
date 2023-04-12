@@ -52,7 +52,7 @@ export class UpdateOriginComponent {
     this.fg = this.$formBuilder.group({
       name : [ this.origin.name, Validators.minLength(2)],
       description : [this.origin.description, Validators.minLength(2)],
-      heritatedSkill : [this.skills[0]],
+      heritatedSkill : [this.origin.heritatedSkill ],
       skillToChoose : [/*FormGroupValidator.sameList() ajout condition list skill1 =/= list skill2*/]
     })
   }
